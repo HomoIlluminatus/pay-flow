@@ -52,4 +52,4 @@ class AccountNotFoundError(AccountError):
 
     @property
     def message(self) -> str:
-        return f"Account not found: ID {str(self.account_id)}"
+        return f"Account not found: ID {self.account_id}"
