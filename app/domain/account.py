@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from decimal import Decimal
 from uuid import UUID
 
-from domain.base_entity import BaseEtity
+from .base_entity import BaseEtity
 from core.errors.account_errors import InsufficientFundsError
 from core.errors.account_errors import InvalidDepositAmountError
 from core.errors.account_errors import InvalidWithdrawalAmountError

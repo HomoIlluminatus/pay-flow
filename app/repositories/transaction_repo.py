@@ -3,11 +3,10 @@ from typing import List
 from uuid import UUID
 
 from domain.transaction import Transaction
+from .base_repo import AbstractRepository
 
-from repositories.base_repo import AbstractRepository
 
-
-class TransactionRepository(ABC, AbstractRepository):
+class TransactionRepository(AbstractRepository):
     @abstractmethod
     async def get_accounts_transactions_list(
         self,

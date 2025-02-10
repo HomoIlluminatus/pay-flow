@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from uuid import UUID
 
-from errors.base_error import BaseAppError
+from .base_error import BaseAppError
 
 
 @dataclass
