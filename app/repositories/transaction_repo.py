@@ -6,7 +6,7 @@ from domain.transaction import Transaction
 from .base_repo import AbstractRepository
 
 
-class TransactionRepository(AbstractRepository):
+class TransactionRepository(AbstractRepository[Transaction]):
     @abstractmethod
     async def get_accounts_transactions_list(
         self,

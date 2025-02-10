@@ -7,7 +7,7 @@ from domain.account import Account
 from .base_repo import AbstractRepository
 
 
-class AccountRepository(AbstractRepository):
+class AccountRepository(AbstractRepository[Account]):
     @abstractmethod
     async def get_user_accounts_list(self, user_id: UUID) -> List[Account]:
         ...
