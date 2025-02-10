@@ -1,10 +1,8 @@
 from dataclasses import dataclass, field
 from decimal import Decimal
-import logging.config
 from uuid import UUID
-import logging
 
-from . base_entity import BaseEtity
+from domain.base_entity import BaseEtity
 from core.errors.account_errors import InsufficientFundsError
 from core.errors.account_errors import InvalidDepositAmountError
 from core.errors.account_errors import InvalidWithdrawalAmountError

@@ -4,7 +4,7 @@ from uuid import UUID
 
 from domain.transaction import Transaction
 
-from . base_repo import AbstractRepository
+from repositories.base_repo import AbstractRepository
 
 
 class TransactionRepository(ABC, AbstractRepository):

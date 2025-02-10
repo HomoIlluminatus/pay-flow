@@ -4,7 +4,7 @@ from uuid import UUID
 
 from domain.account import Account
 
-from . base_repo import AbstractRepository
+from repositories.base_repo import AbstractRepository
 
 
 class AccountRepository(ABC, AbstractRepository):

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 from domain.user import User
-from . base_repo import AbstractRepository
+from repositories.base_repo import AbstractRepository
 
 
 class UserRepository(ABC, AbstractRepository[User]):

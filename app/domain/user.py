@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 
-from . base_entity import BaseEtity
+from domain.base_entity import BaseEtity
 
 
 @dataclass

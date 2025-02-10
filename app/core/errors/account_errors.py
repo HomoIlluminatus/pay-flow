@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from decimal import Decimal
 from uuid import UUID
 
-from .base_error import BaseAppError
+from errors.base_error import BaseAppError
 
 
 @dataclass

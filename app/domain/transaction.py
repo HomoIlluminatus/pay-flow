@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from decimal import Decimal
 from uuid import UUID
 
-from .base_entity import BaseEtity
+from domain.base_entity import BaseEtity
 
 
 @dataclass
