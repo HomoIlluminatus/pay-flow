@@ -11,4 +11,7 @@ class AccountRepository(AbstractRepository[Account]):
     @abstractmethod
     async def get_user_accounts_list(self, user_id: UUID) -> List[Account]:
         ...
-        
+    
+    @abstractmethod
+    async def delete_user_all_accounts(self, user_id: UUID) -> None:
+        ...
