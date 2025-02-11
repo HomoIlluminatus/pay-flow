@@ -33,14 +33,18 @@ class UserService:
             await self._uow.commit()
             return user
         
-    async def update(self, user: User) -> User:
+    async def update_user(self, user: User) -> User:
         async with self._uow:
             await self._uow.user_repo.update(user)
             await self._uow.commit()
             return user
         
-    async def delete(self, user_id: UUID) -> None:
+    async def delete_user(self, user_id: UUID) -> None:
         async with self._uow:
+            await self._uow.transaction_repo.delete_user_all_transactions(
+                user_id
+            )
+            await self._uow.account_repo.delete_user_all_accounts(user_id)
             await self._uow.user_repo.delete(user_id)
             await self._uow.commit()
             
