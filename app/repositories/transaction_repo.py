@@ -8,7 +8,7 @@ from .base_repo import AbstractRepository
 
 class TransactionRepository(AbstractRepository[Transaction]):
     @abstractmethod
-    async def get_accounts_transactions_list(
+    async def get_account_transactions_list(
         self,
         account_id: UUID
     ) -> List[Transaction]:
@@ -19,5 +19,13 @@ class TransactionRepository(AbstractRepository[Transaction]):
         self,
         user_id: UUID
     ) -> List[Transaction]:
+        ...
+        
+    @abstractmethod
+    async def delete_user_all_transactions(self, user_id: UUID) -> None:
+        ...
+        
+    @abstractmethod
+    async def delete_account_all_transactions(self, account_id: UUID) -> None:
         ...
         
