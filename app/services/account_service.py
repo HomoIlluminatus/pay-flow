@@ -31,6 +31,9 @@ class AccountService:
         
     async def delete_account(self, account_id: UUID) -> None:
         async with self._uow:
+            await self._uow.transaction_repo.delete_account_all_transactions(
+                account_id
+            )
             await self._uow.account_repo.delete(account_id)
             await self._uow.commit()
             
