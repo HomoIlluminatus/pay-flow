@@ -22,13 +22,14 @@ class UserService:
     async def get_users_list(self):
         return await self._uow.user_repo.get_list()
         
-    async def create_user(self, user: User) -> User:
+    async def create_user(self, user: User, is_admin: bool=False) -> User:
         async with self._uow:
             existing_user = await self._uow.user_repo.get_user_by_email(
                 user.email
             )
             if existing_user is not None:
                 raise UserExistError(user.email)
+            user.is_admin = is_admin
             await self._uow.user_repo.add(user)
             return user
         
