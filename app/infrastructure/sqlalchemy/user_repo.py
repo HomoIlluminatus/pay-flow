@@ -9,13 +9,10 @@ from repositories.user_repo import UserRepository
 from .base_repo import BaseSQLAlchemyRepository
 
 
-class UserSQLAlchemyRepository(BaseSQLAlchemyRepository[User], UserRepository):
-    def __init__(self, session: AsyncSession) -> None:
-        self._session = session
-    
+class UserSQLAlchemyRepository(BaseSQLAlchemyRepository[User], UserRepository):    
     async def get_user_by_email(self, email: str) -> Optional[User]:
         result = await self._session.execute(
-            select(User).where(User.email == email)
+            select(self._model).where(self._model.email == email)
         )
         return result.scalars().first()
     
