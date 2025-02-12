@@ -62,7 +62,5 @@ class WebHookService:
             transaction = Transaction(transaction_id, amount)
             await self._uow.transaction_repo.add(transaction)
             
-            await self._uow.commit()
-            
             return transaction            
             

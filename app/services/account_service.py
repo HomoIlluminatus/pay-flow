@@ -26,7 +26,6 @@ class AccountService:
     async def update_account(self, account: Account) -> Account:
         async with self._uow:
             await self._uow.account_repo.update(account)
-            await self._uow.commit()
             return account
         
     async def delete_account(self, account_id: UUID) -> None:
@@ -35,5 +34,4 @@ class AccountService:
                 account_id
             )
             await self._uow.account_repo.delete(account_id)
-            await self._uow.commit()
             

@@ -30,13 +30,11 @@ class UserService:
             if existing_user is not None:
                 raise UserExistError(user.email)
             await self._uow.user_repo.add(user)
-            await self._uow.commit()
             return user
         
     async def update_user(self, user: User) -> User:
         async with self._uow:
             await self._uow.user_repo.update(user)
-            await self._uow.commit()
             return user
         
     async def delete_user(self, user_id: UUID) -> None:
@@ -46,5 +44,4 @@ class UserService:
             )
             await self._uow.account_repo.delete_user_all_accounts(user_id)
             await self._uow.user_repo.delete(user_id)
-            await self._uow.commit()
             
