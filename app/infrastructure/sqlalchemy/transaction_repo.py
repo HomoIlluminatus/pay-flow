@@ -16,7 +16,7 @@ class TransactionSQLAlchemyRepository(BaseSQLAlchemyRepository[Transaction],
         account_id: UUID
     ) -> List[Transaction]:
         result = await self._session.execute(
-            select(Transaction).where(Transaction.account_id == account_id)
+            select(self._model).where(self._model.account_id == account_id)
         )
         return result.scalars().all()
     
@@ -25,19 +25,19 @@ class TransactionSQLAlchemyRepository(BaseSQLAlchemyRepository[Transaction],
         user_id: UUID        
     ) -> List[Transaction]:
         result = await self._session.execute(
-            select(Transaction).where(Transaction.user_id == user_id)
+            select(self._model).where(self._model.user_id == user_id)
         )
         return result.scalars().all()
     
     async def delete_account_all_transactions(self, account_id):
         await self._session.execute(
-            delete(Transaction).where(Transaction.account_id == account_id)
+            delete(self._model).where(self._model.account_id == account_id)
         )
         await self._session.commit()
         
     async def delete_user_all_transactions(self, user_id) -> None:
         await self._session.execute(
-            delete(Transaction).where(Transaction.user_id == user_id)
+            delete(self._model).where(self._model.user_id == user_id)
         )
         await self._session.commit()
         
