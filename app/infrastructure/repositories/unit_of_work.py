@@ -1,9 +1,9 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from repositories.base_uow import UnitOfWork
-from infrastructure.sqlalchemy.user_repo import UserSQLAlchemyRepository
-from infrastructure.sqlalchemy.account_repo import AccountSQLAlchemyRepository
-from infrastructure.sqlalchemy.transaction_repo import (
+from infrastructure.repositories.user_repo import UserSQLAlchemyRepository
+from infrastructure.repositories.account_repo import AccountSQLAlchemyRepository
+from infrastructure.repositories.transaction_repo import (
     TransactionSQLAlchemyRepository
 )
 
